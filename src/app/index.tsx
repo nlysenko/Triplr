@@ -1,20 +1,20 @@
-import React from 'react';
-import {SafeAreaView, StatusBar, View} from 'react-native';
+import React from 'react'
+import { SafeAreaView, StatusBar, View } from 'react-native'
 
-import HomeScreen from '@/feed/screens/HomeScreen';
+import { Home } from '@/home/screens/Home'
 
-import styles from './style';
+import { styles } from './style'
 
-const App: React.FC = () => {
+export function App() {
   return (
     <SafeAreaView style={styles.app}>
       <StatusBar barStyle={'dark-content'} />
 
       <View style={styles.container}>
-        <HomeScreen />
+        <Home />
       </View>
-    </SafeAreaView>
-  );
-};
 
-export default App;
+      <View style={styles.footer} />
+    </SafeAreaView>
+  )
+}

@@ -1,13 +1,13 @@
-import React from 'react';
-import {Text, View, Image} from 'react-native';
+import React from 'react'
+import { Text, View, Image } from 'react-native'
 
-import styles from './style';
+import { styles } from './style'
 
 export type Props = {
-  title: string;
-};
+  title: string
+}
 
-const Top: React.FC<Props> = ({title}) => {
+export function Top({ title }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.brand}>{title}</Text>
@@ -17,7 +17,5 @@ const Top: React.FC<Props> = ({title}) => {
         source={require('assets/img/icon-social-notifications.png')}
       />
     </View>
-  );
-};
-
-export default Top;
+  )
+}
