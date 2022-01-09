@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import { Top } from '@/home/components/Top'
 
-import { styles } from './style'
+import { styles } from './styles'
 
 export function Search() {
   return (
@@ -12,5 +12,3 @@ export function Search() {
     </View>
   )
 }
-
-export default Search

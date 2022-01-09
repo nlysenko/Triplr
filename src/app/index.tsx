@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar, View } from 'react-native'
 
 import { Home } from '@/home/screens/Home'
 
-import { styles } from './style'
+import { styles } from './styles'
 
 export function App() {
   return (
