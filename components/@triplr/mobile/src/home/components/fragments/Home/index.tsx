@@ -18,7 +18,10 @@ type Props = NativeStackScreenProps<RootStackParamList, '/'>
 export function Home({ navigation }: Props) {
   return (
     <View style={styles.home}>
-      <TopBar navigation={navigation} title="Triplr" />
+      <TopBar
+        title="Triplr"
+        onNotificationIconPress={() => navigation.navigate('/notifications')}
+      />
 
       <View style={{ display: 'flex', alignItems: 'center' }}>
         <Text>Home</Text>

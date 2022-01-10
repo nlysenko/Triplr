@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  bottomBar: {
+  container: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -12,5 +12,25 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fffefe',
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
+  },
+
+  homeScreenIcon: {
+    width: 24,
+    height: 24,
+  },
+
+  searchScreenIcon: {
+    width: 32,
+    height: 32,
+  },
+
+  mapsScreenIcon: {
+    width: 32,
+    height: 32,
+  },
+
+  profileScreenIcon: {
+    width: 24,
+    height: 24,
   },
 })

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  topBar: {
+  container: {
     height: 100,
     display: 'flex',
     flexDirection: 'row',
@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 
-  brand: {
+  title: {
     marginTop: 56,
     fontSize: 20,
     color: '#161f3d',
@@ -19,9 +19,14 @@ export const styles = StyleSheet.create({
     fontFamily: 'Metropolis-SemiBold',
   },
 
-  notifications: {
+  notificationsButton: {
     width: 24,
     height: 24,
     marginTop: 53,
   },
+
+  notificationsIcon: {
+    width: '100%',
+    height: '100%',
+  }
 })

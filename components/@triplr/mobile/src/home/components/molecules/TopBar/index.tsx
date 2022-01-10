@@ -4,28 +4,29 @@
  *
  */
 
-import { Text, View, Image, TouchableHighlight } from 'react-native'
+import { Text, View, Image, TouchableOpacity } from 'react-native'
 
 import { styles } from './styles'
 
 interface Props {
   title: string
-  navigation: any
+  onNotificationIconPress: any
 }
 
-export function TopBar({ title, navigation }: Props) {
+export function TopBar({ title, onNotificationIconPress }: Props) {
   return (
-    <View style={styles.topBar}>
-      <Text style={styles.brand}>{title}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}</Text>
 
-      <TouchableHighlight
-        style={styles.notifications}
-        onPress={() => navigation.navigate('/notifications')}
+      <TouchableOpacity
+        style={styles.notificationsButton}
+        onPress={onNotificationIconPress}
       >
         <Image
+          style={styles.notificationsIcon}
           source={require('assets/img/icon-social-notifications-none-24-px.png')}
         />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   )
 }
