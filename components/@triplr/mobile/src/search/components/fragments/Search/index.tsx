@@ -6,7 +6,7 @@
 
 import { View } from 'react-native'
 
-import { Top } from '@/home/components/molecules/Top'
+import { Top } from '@/home/components/molecules/TopBar'
 
 import { styles } from './styles'
 
