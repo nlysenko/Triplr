@@ -24,7 +24,7 @@ export function TopBar({ title, onNotificationIconPress }: Props) {
       >
         <Image
           style={styles.notificationsIcon}
-          source={require('assets/img/icon-social-notifications-none-24-px.png')}
+          source={require('assets/img/social-notifications-none.png')}
         />
       </TouchableOpacity>
     </View>

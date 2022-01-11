@@ -1,6 +1,6 @@
 /**
  *
- * Search
+ * Maps
  *
  */
 
@@ -8,10 +8,10 @@ import { View, Text } from 'react-native'
 
 import { styles } from './styles'
 
-export function Search() {
+export function Maps() {
   return (
     <View style={styles.container}>
-      <Text>Search page</Text>
+      <Text>Maps page</Text>
     </View>
   )
 }

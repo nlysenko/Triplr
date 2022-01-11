@@ -4,35 +4,107 @@
  *
  */
 
-import { View, Text, Button } from 'react-native'
-import { RootStackParamList } from '@/app/navigation/RootStack'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { SafeAreaView, Image } from 'react-native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import { TopBar } from '@/home/components/molecules/TopBar'
-import { BottomBar } from '@/home/components/molecules/BottomBar'
+import { Feed } from '@/feed/components/fragments/Feed'
+import { Search } from '@/search/components/fragments/Search'
+import { Maps } from '@/maps/components/fragments/Maps'
+import { Profile } from '@/profile/components/fragments/Profile'
 
 import { styles } from './styles'
 
-type Props = NativeStackScreenProps<RootStackParamList, '/'>
+const Tab = createBottomTabNavigator()
 
-export function Home({ navigation }: Props) {
+export function Home() {
   return (
-    <View style={styles.home}>
-      <TopBar
-        title="Triplr"
-        onNotificationIconPress={() => navigation.navigate('/notifications')}
-      />
-
-      <View style={{ display: 'flex', alignItems: 'center' }}>
-        <Text>Home</Text>
-
-        <Button
-          title="Open notifications"
-          onPress={() => navigation.navigate('/notifications')}
+    <SafeAreaView style={styles.container}>
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: styles.tabBar,
+        }}
+      >
+        <Tab.Screen
+          name="Feed"
+          component={Feed}
+          options={{
+            title: '',
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Image
+                  style={styles.feedIcon}
+                  source={require('assets/img/feed-active.png')}
+                />
+              ) : (
+                <Image
+                  style={styles.feedIcon}
+                  source={require('assets/img/feed.png')}
+                />
+              ),
+          }}
         />
-      </View>
 
-      <BottomBar />
-    </View>
+        <Tab.Screen
+          name="Search"
+          component={Search}
+          options={{
+            title: '',
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Image
+                  style={styles.searchIcon}
+                  source={require('assets/img/search-active.png')}
+                />
+              ) : (
+                <Image
+                  style={styles.searchIcon}
+                  source={require('assets/img/search.png')}
+                />
+              ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Maps"
+          component={Maps}
+          options={{
+            title: '',
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Image
+                  style={styles.mapsIcon}
+                  source={require('assets/img/maps.png')}
+                />
+              ) : (
+                <Image
+                  style={styles.mapsIcon}
+                  source={require('assets/img/maps.png')}
+                />
+              ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            title: '',
+            tabBarIcon: ({ focused }) =>
+              focused ? (
+                <Image
+                  style={styles.profileIcon}
+                  source={require('assets/img/profile.png')}
+                />
+              ) : (
+                <Image
+                  style={styles.profileIcon}
+                  source={require('assets/img/profile.png')}
+                />
+              ),
+          }}
+        />
+      </Tab.Navigator>
+    </SafeAreaView>
   )
 }
