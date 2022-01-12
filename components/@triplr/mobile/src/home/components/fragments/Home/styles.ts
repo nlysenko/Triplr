@@ -11,24 +11,4 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
   },
-
-  feedIcon: {
-    width: 24,
-    height: 24,
-  },
-
-  searchIcon: {
-    width: 32,
-    height: 32,
-  },
-
-  mapsIcon: {
-    width: 32,
-    height: 32,
-  },
-
-  profileIcon: {
-    width: 24,
-    height: 24,
-  },
 })

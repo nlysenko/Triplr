@@ -28,5 +28,5 @@ export const styles = StyleSheet.create({
   notificationsIcon: {
     width: '100%',
     height: '100%',
-  }
+  },
 })

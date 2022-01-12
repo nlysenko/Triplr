@@ -12,6 +12,11 @@ import { Search } from '@/search/components/fragments/Search'
 import { Maps } from '@/maps/components/fragments/Maps'
 import { Profile } from '@/profile/components/fragments/Profile'
 
+import { FeedIcon } from '@/feed/components/atoms/FeedIcon'
+import { SearchIcon } from '@/search/components/atoms/SearchIcon'
+import { MapsIcon } from '@/maps/components/atoms/MapsIcon'
+import { ProfileIcon } from '@/profile/components/atoms/ProfileIcon'
+
 import { styles } from './styles'
 
 const Tab = createBottomTabNavigator()
@@ -26,82 +31,38 @@ export function Home() {
         }}
       >
         <Tab.Screen
-          name="Feed"
+          name="/feed"
           component={Feed}
           options={{
             title: '',
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Image
-                  style={styles.feedIcon}
-                  source={require('assets/img/feed-active.png')}
-                />
-              ) : (
-                <Image
-                  style={styles.feedIcon}
-                  source={require('assets/img/feed.png')}
-                />
-              ),
+            tabBarIcon: ({ focused }) => <FeedIcon isActive={focused} />,
           }}
         />
 
         <Tab.Screen
-          name="Search"
+          name="/search"
           component={Search}
           options={{
             title: '',
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Image
-                  style={styles.searchIcon}
-                  source={require('assets/img/search-active.png')}
-                />
-              ) : (
-                <Image
-                  style={styles.searchIcon}
-                  source={require('assets/img/search.png')}
-                />
-              ),
+            tabBarIcon: ({ focused }) => <SearchIcon isActive={focused} />,
           }}
         />
 
         <Tab.Screen
-          name="Maps"
+          name="/maps"
           component={Maps}
           options={{
             title: '',
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Image
-                  style={styles.mapsIcon}
-                  source={require('assets/img/maps.png')}
-                />
-              ) : (
-                <Image
-                  style={styles.mapsIcon}
-                  source={require('assets/img/maps.png')}
-                />
-              ),
+            tabBarIcon: () => <MapsIcon />,
           }}
         />
 
         <Tab.Screen
-          name="Profile"
+          name="/profile"
           component={Profile}
           options={{
             title: '',
-            tabBarIcon: ({ focused }) =>
-              focused ? (
-                <Image
-                  style={styles.profileIcon}
-                  source={require('assets/img/profile.png')}
-                />
-              ) : (
-                <Image
-                  style={styles.profileIcon}
-                  source={require('assets/img/profile.png')}
-                />
-              ),
+            tabBarIcon: () => <ProfileIcon />,
           }}
         />
       </Tab.Navigator>
