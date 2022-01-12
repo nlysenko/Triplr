@@ -14,6 +14,11 @@ import { styles } from './styles'
 
 const Tab = createMaterialTopTabNavigator()
 
+export type SearchTopTabParamList = {
+  '/photos': undefined
+  '/trips': undefined
+}
+
 export function Search() {
   return (
     <View style={styles.container}>
@@ -25,8 +30,20 @@ export function Search() {
           tabBarIndicatorStyle: styles.indicator,
         }}
       >
-        <Tab.Screen name="Photos" component={Photos} />
-        <Tab.Screen name="Trips" component={Trips} />
+        <Tab.Screen
+          name="/photos"
+          component={Photos}
+          options={{
+            title: 'Photos',
+          }}
+        />
+        <Tab.Screen
+          name="/trips"
+          component={Trips}
+          options={{
+            title: 'Trips',
+          }}
+        />
       </Tab.Navigator>
     </View>
   )

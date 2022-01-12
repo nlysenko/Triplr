@@ -4,7 +4,7 @@
  *
  */
 
-import { SafeAreaView, Image } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { Feed } from '@/feed/components/fragments/Feed'
@@ -20,6 +20,13 @@ import { ProfileIcon } from '@/profile/components/atoms/ProfileIcon'
 import { styles } from './styles'
 
 const Tab = createBottomTabNavigator()
+
+export type HomeBottomTabParamList = {
+  '/feed': undefined
+  '/search': undefined
+  '/maps': undefined
+  '/profile': undefined
+}
 
 export function Home() {
   return (

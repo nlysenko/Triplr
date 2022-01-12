@@ -4,9 +4,12 @@
  *
  */
 
-import { View } from 'react-native'
+import { View, TouchableOpacity, Text } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+
 import { RootStackParamList } from '@/app/navigation/RootStack'
+// import { HomeBottomTabParamList } from '@/home/components/fragments/Home'
+// import { SearchTopTabParamList } from '@/search/components/fragments/Search'
 
 import { TopBar } from '@/feed/components/molecules/TopBar'
 
@@ -21,6 +24,22 @@ export function Feed({ navigation }: Props) {
         title="Triplr"
         onNotificationIconPress={() => navigation.navigate('/notifications')}
       />
+
+      <View style={{ paddingTop: 50 }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('/search', { screen: '/trips' })}
+        >
+          <Text>Go to Search Trips</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={{ paddingTop: 50 }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('/search', { screen: '/photos' })}
+        >
+          <Text>Go to Search Photos</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
