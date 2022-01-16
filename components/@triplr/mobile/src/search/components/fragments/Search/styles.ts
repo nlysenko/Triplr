@@ -5,12 +5,6 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
 
-  title: {
-    marginTop: 120,
-    marginBottom: 120,
-    textAlign: 'center',
-  },
-
   label: {
     fontSize: 15,
     textTransform: 'capitalize',

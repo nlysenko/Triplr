@@ -5,7 +5,12 @@
  */
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native'
+import {
+  NavigationContainer,
+  NavigatorScreenParams,
+} from '@react-navigation/native'
+
+import { HomeBottomTabParamList } from '@/home/components/fragments/Home'
 
 import { Home } from '@/home/components/fragments/Home'
 import { Notifications } from '@/notifications/components/fragments/Notifications'
@@ -13,7 +18,7 @@ import { Notifications } from '@/notifications/components/fragments/Notification
 const RootStack = createNativeStackNavigator()
 
 export type RootStackParamList = {
-  '/': undefined
+  '/': NavigatorScreenParams<HomeBottomTabParamList>
   '/notifications': undefined
 }
 

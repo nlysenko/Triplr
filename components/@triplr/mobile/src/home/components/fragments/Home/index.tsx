@@ -6,6 +6,9 @@
 
 import { SafeAreaView } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigatorScreenParams } from '@react-navigation/native'
+
+import { SearchTopTabParamList } from '@/search/components/fragments/Search'
 
 import { Feed } from '@/feed/components/fragments/Feed'
 import { Search } from '@/search/components/fragments/Search'
@@ -23,7 +26,7 @@ const Tab = createBottomTabNavigator()
 
 export type HomeBottomTabParamList = {
   '/feed': undefined
-  '/search': undefined
+  '/search': NavigatorScreenParams<SearchTopTabParamList>
   '/maps': undefined
   '/profile': undefined
 }
