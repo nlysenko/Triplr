@@ -8,27 +8,27 @@ import { SafeAreaView } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigatorScreenParams } from '@react-navigation/native'
 
-import { SearchTopTabParamList } from '@/search/components/fragments/Search'
+import { SearchTabParamList } from '@/search/components/fragments/Search'
 
 import { Feed } from '@/feed/components/fragments/Feed'
 import { Search } from '@/search/components/fragments/Search'
 import { Maps } from '@/maps/components/fragments/Maps'
-import { Profile } from '@/profile/components/fragments/Profile'
+import { ProfileSettingsForm } from '@/settings/components/fragments/ProfileSettingsForm'
 
-import { FeedIcon } from '@/feed/components/atoms/FeedIcon'
-import { SearchIcon } from '@/search/components/atoms/SearchIcon'
-import { MapsIcon } from '@/maps/components/atoms/MapsIcon'
-import { ProfileIcon } from '@/profile/components/atoms/ProfileIcon'
+import { FeedIcon } from '@/home/components/atoms/FeedIcon'
+import { SearchIcon } from '@/home/components/atoms/SearchIcon'
+import { MapsIcon } from '@/home/components/atoms/MapsIcon'
+import { ProfileIcon } from '@/home/components/atoms/ProfileIcon'
 
 import { styles } from './styles'
 
 const Tab = createBottomTabNavigator()
 
-export type HomeBottomTabParamList = {
-  '/feed': undefined
-  '/search': NavigatorScreenParams<SearchTopTabParamList>
-  '/maps': undefined
-  '/profile': undefined
+export type HomeTabParamList = {
+  Feed: undefined
+  Search: NavigatorScreenParams<SearchTabParamList>
+  Maps: undefined
+  Profile: undefined
 }
 
 export function Home() {
@@ -41,7 +41,7 @@ export function Home() {
         }}
       >
         <Tab.Screen
-          name="/feed"
+          name="Feed"
           component={Feed}
           options={{
             title: '',
@@ -50,7 +50,7 @@ export function Home() {
         />
 
         <Tab.Screen
-          name="/search"
+          name="Search"
           component={Search}
           options={{
             title: '',
@@ -59,7 +59,7 @@ export function Home() {
         />
 
         <Tab.Screen
-          name="/maps"
+          name="Maps"
           component={Maps}
           options={{
             title: '',
@@ -68,8 +68,8 @@ export function Home() {
         />
 
         <Tab.Screen
-          name="/profile"
-          component={Profile}
+          name="Profile"
+          component={ProfileSettingsForm}
           options={{
             title: '',
             tabBarIcon: () => <ProfileIcon />,

@@ -1,12 +1,8 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  trip: {
-    backgroundColor: '#fff',
-    marginBottom: 10,
-    paddingHorizontal: 20,
-    paddingTop: 23,
-    paddingBottom: 19,
+  container: {
+    flex: 1,
   },
 
   photo: {
@@ -36,6 +32,6 @@ export const styles = StyleSheet.create({
   },
 
   tab: {
-    paddingHorizontal: 10 
+    paddingHorizontal: 10,
   },
 })

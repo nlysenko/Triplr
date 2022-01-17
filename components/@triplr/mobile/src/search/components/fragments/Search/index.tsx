@@ -8,17 +8,17 @@ import { View } from 'react-native'
 import { useState } from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
-import { SearchField } from '@/search/components/molecules/SearchField'
+import { SearchInput } from '@/search/components/molecules/SearchInput'
 import { Photos } from '@/search/components/molecules/Photos'
-import { Trips } from '@/search/components/molecules/Trips'
+import { TripList } from '@/search/components/molecules/TripList'
 
 import { styles } from './styles'
 
 const Tab = createMaterialTopTabNavigator()
 
-export type SearchTopTabParamList = {
-  '/photos': { referer: string }
-  '/trips': { referer: string }
+export type SearchTabParamList = {
+  Photos: { referer: string }
+  Trips: { referer: string }
 }
 
 export function Search() {
@@ -30,10 +30,9 @@ export function Search() {
 
   return (
     <View style={styles.container}>
-      <SearchField
-        value={searchItem}
-        onSearchFieldChange={handleChangeSearchField}
-      />
+      <View style={styles.searchInputWrapper}>
+        <SearchInput value={searchItem} onChange={handleChangeSearchField} />
+      </View>
 
       <Tab.Navigator
         screenOptions={{
@@ -42,15 +41,15 @@ export function Search() {
         }}
       >
         <Tab.Screen
-          name="/trips"
-          component={Trips}
+          name="Trips"
+          component={TripList}
           options={{
             title: 'Trips',
           }}
         />
 
         <Tab.Screen
-          name="/photos"
+          name="Photos"
           component={Photos}
           options={{
             title: 'Photos',

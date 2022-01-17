@@ -2,13 +2,6 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 41,
-    paddingBottom: 18,
-    paddingHorizontal: 20,
-    backgroundColor: '#fff',
-  },
-
-  section: {
     backgroundColor: '#e6e6e7',
     flexDirection: 'row',
     alignItems: 'center',

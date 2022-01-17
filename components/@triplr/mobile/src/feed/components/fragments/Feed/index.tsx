@@ -14,7 +14,7 @@ import { TopBar } from '@/feed/components/molecules/TopBar'
 
 import { styles } from './styles'
 
-type Props = NativeStackScreenProps<RootStackParamList, '/'>
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>
 
 export function Feed({ navigation }: Props) {
   const [testItem, setTestItem] = useState('Feed')
@@ -27,16 +27,16 @@ export function Feed({ navigation }: Props) {
     <View style={styles.container}>
       <TopBar
         title="Triplr"
-        onNotificationIconPress={() => navigation.navigate('/notifications')}
+        onNotificationIconPress={() => navigation.navigate('Notifications')}
       />
 
       <View style={styles.card}>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate('/', {
-              screen: '/search',
+            navigation.navigate('Home', {
+              screen: 'Search',
               params: {
-                screen: '/trips',
+                screen: 'Trips',
                 params: {
                   referer: 'Feed',
                 },
@@ -51,10 +51,10 @@ export function Feed({ navigation }: Props) {
       <View style={styles.card}>
         <TouchableOpacity
           onPress={() =>
-            navigation.navigate('/', {
-              screen: '/search',
+            navigation.navigate('Home', {
+              screen: 'Search',
               params: {
-                screen: '/photos',
+                screen: 'Photos',
                 params: {
                   referer: testItem,
                 },

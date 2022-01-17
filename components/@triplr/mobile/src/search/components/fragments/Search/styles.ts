@@ -5,6 +5,13 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
 
+  searchInputWrapper: {
+    paddingTop: 41,
+    paddingBottom: 18,
+    paddingHorizontal: 20,
+    backgroundColor: '#fff',
+  },
+
   label: {
     fontSize: 15,
     textTransform: 'capitalize',
