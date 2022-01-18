@@ -1,6 +1,6 @@
 /**
  *
- * Photos
+ * TripPhotoList
  *
  */
 
@@ -14,7 +14,7 @@ import { styles } from './styles'
 
 type Props = NativeStackScreenProps<SearchTabParamList, 'Photos'>
 
-export function Photos({ route }: Props) {
+export function TripPhotoList({ route }: Props) {
   return (
     <View style={styles.container}>
       {route.params?.referer ? <Text>{route.params?.referer}</Text> : false}

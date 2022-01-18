@@ -9,8 +9,8 @@ import { useState } from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 import { SearchInput } from '@/search/components/molecules/SearchInput'
-import { Photos } from '@/search/components/molecules/Photos'
-import { TripList } from '@/search/components/molecules/TripList'
+import { TripPhotoList } from '@/search/components/organisms/TripPhotoList'
+import { TripList } from '@/search/components/organisms/TripList'
 
 import { styles } from './styles'
 
@@ -50,7 +50,7 @@ export function Search() {
 
         <Tab.Screen
           name="Photos"
-          component={Photos}
+          component={TripPhotoList}
           options={{
             title: 'Photos',
           }}

@@ -12,4 +12,10 @@ export const styles = StyleSheet.create({
     paddingTop: 23,
     paddingBottom: 19,
   },
+
+  wrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 })
