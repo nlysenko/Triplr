@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
 
-  searchInputWrapper: {
+  wrapper: {
     paddingTop: 41,
     paddingBottom: 18,
     paddingHorizontal: 20,

@@ -30,7 +30,7 @@ export function Search() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchInputWrapper}>
+      <View style={styles.wrapper}>
         <SearchInput value={searchItem} onChange={handleChangeSearchField} />
       </View>
 
@@ -38,6 +38,8 @@ export function Search() {
         screenOptions={{
           tabBarLabelStyle: styles.label,
           tabBarIndicatorStyle: styles.indicator,
+          tabBarActiveTintColor: '#7365ff',
+          tabBarInactiveTintColor: '#515f66',
         }}
       >
         <Tab.Screen
