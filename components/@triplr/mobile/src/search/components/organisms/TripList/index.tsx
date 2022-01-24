@@ -15,8 +15,8 @@ import { fetchData } from '@/app/utils/fetchData'
 import { styles } from './styles'
 
 export function TripList() {
-  const [trips, setTrips] = useState<Trip[]>([] as Trip[])
-  const [tipsIsLoaded, setTripsIsLoaded] = useState<boolean>(false)
+  const [trips, setTrips] = useState<Trip[]>([])
+  const [tipsIsLoaded, setTripsIsLoaded] = useState(false)
 
   useEffect(() => {
     ;(async () => {
