@@ -10,7 +10,7 @@ import { styles } from './styles'
 
 interface Props {
   value?: string
-  onChange: () => void
+  onChange: (val: string) => void
 }
 
 export function SearchInput({ value, onChange }: Props) {

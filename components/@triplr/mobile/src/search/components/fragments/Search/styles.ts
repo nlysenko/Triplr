@@ -11,14 +11,4 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
-
-  label: {
-    fontSize: 15,
-    textTransform: 'capitalize',
-  },
-
-  indicator: {
-    height: 3,
-    borderRadius: 1.5,
-  },
 })

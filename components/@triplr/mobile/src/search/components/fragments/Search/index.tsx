@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 import { SearchInput } from '@/search/components/molecules/SearchInput'
+import { SearchTabBar } from '@/search/components/organisms/SearchTabBar'
 import { TripPhotoList } from '@/search/components/organisms/TripPhotoList'
 import { TripList } from '@/search/components/organisms/TripList'
 
@@ -34,14 +35,7 @@ export function Search() {
         <SearchInput value={searchItem} onChange={handleChangeSearchField} />
       </View>
 
-      <Tab.Navigator
-        screenOptions={{
-          tabBarLabelStyle: styles.label,
-          tabBarIndicatorStyle: styles.indicator,
-          tabBarActiveTintColor: '#7365ff',
-          tabBarInactiveTintColor: '#515f66',
-        }}
-      >
+      <Tab.Navigator tabBar={props => <SearchTabBar {...props} />}>
         <Tab.Screen
           name="Trips"
           component={TripList}
