@@ -8,7 +8,7 @@ import { View, Button, Text } from 'react-native'
 import { RootStackParamList } from '@/app/navigation/RootStack'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
-type Props = NativeStackScreenProps<RootStackParamList, '/notifications'>
+type Props = NativeStackScreenProps<RootStackParamList, 'Notifications'>
 
 export function Notifications({ navigation }: Props) {
   return (

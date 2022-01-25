@@ -4,7 +4,7 @@
  *
  */
 
-import { View, Text, ImageBackground } from 'react-native'
+import { View, Text, ImageBackground, TouchableOpacity } from 'react-native'
 
 import { Trip } from '@/app/types/Trip'
 
@@ -12,11 +12,12 @@ import { styles } from './styles'
 
 interface Props {
   trip: Trip
+  onPress: any
 }
 
-export function TripListItem({ trip }: Props) {
+export function TripListItem({ trip, onPress }: Props) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress}>
       <ImageBackground
         style={styles.photo}
         resizeMode="cover"
@@ -32,6 +33,6 @@ export function TripListItem({ trip }: Props) {
 
         <Text style={styles.tripDate}>{trip.dateStart}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }

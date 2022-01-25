@@ -5,11 +5,12 @@
  */
 
 import { SafeAreaView } from 'react-native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { NavigatorScreenParams } from '@react-navigation/native'
 
 import { SearchTabParamList } from '@/search/components/fragments/Search'
 
+import { BottomTabBar } from '@/app/navigation/BottomTabBar'
 import { Feed } from '@/feed/components/fragments/Feed'
 import { Search } from '@/search/components/fragments/Search'
 import { Maps } from '@/maps/components/fragments/Maps'
@@ -22,7 +23,7 @@ import { ProfileIcon } from '@/home/components/atoms/ProfileIcon'
 
 import { styles } from './styles'
 
-const Tab = createBottomTabNavigator()
+const Tab = createMaterialTopTabNavigator()
 
 export type HomeTabParamList = {
   Feed: undefined
@@ -34,18 +35,13 @@ export type HomeTabParamList = {
 export function Home() {
   return (
     <SafeAreaView style={styles.container}>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarStyle: styles.tabBar,
-        }}
-      >
+      <Tab.Navigator tabBarPosition="bottom" tabBar={BottomTabBar}>
         <Tab.Screen
           name="Feed"
           component={Feed}
           options={{
-            title: '',
-            tabBarIcon: ({ focused }) => <FeedIcon isActive={focused} />,
+            title: 'feed',
+            tabBarIcon: (focused: boolean) => <FeedIcon isActive={focused} />,
           }}
         />
 
@@ -53,8 +49,8 @@ export function Home() {
           name="Search"
           component={Search}
           options={{
-            title: '',
-            tabBarIcon: ({ focused }) => <SearchIcon isActive={focused} />,
+            title: 'search',
+            tabBarIcon: (focused: boolean) => <SearchIcon isActive={focused} />,
           }}
         />
 
