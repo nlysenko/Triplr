@@ -17,6 +17,11 @@ export const styles = StyleSheet.create({
     paddingBottom: 23,
   },
 
+  tabBarWrapper: {
+    paddingHorizontal: 20,
+    paddingTop: 11,
+  },
+
   errorWrapper: {
     flex: 1,
     justifyContent: 'center',
