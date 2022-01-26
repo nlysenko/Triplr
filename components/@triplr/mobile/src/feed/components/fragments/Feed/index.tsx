@@ -17,60 +17,12 @@ import { styles } from './styles'
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>
 
 export function Feed({ navigation }: Props) {
-  const [testItem, setTestItem] = useState('Feed')
-
-  function handleChange() {
-    setTestItem(testItem === 'Feed' ? 'NoFeed' : 'Feed')
-  }
-
   return (
     <View style={styles.container}>
       <TopBar
         title="Triplr"
         onNotificationIconPress={() => navigation.navigate('Notifications')}
       />
-
-      <View style={styles.card}>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Home', {
-              screen: 'Search',
-              params: {
-                screen: 'Trips',
-                params: {
-                  referer: 'Feed',
-                },
-              },
-            })
-          }
-        >
-          <Text>Go to Search Trips</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.card}>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Home', {
-              screen: 'Search',
-              params: {
-                screen: 'Photos',
-                params: {
-                  referer: testItem,
-                },
-              },
-            })
-          }
-        >
-          <Text>Go to Search Photos</Text>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.card}>
-        <TouchableOpacity onPress={handleChange}>
-          <Text>Change referer</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   )
 }
