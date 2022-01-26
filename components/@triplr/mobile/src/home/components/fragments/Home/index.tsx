@@ -4,7 +4,8 @@
  *
  */
 
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
+import { Fragment } from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { NavigatorScreenParams } from '@react-navigation/native'
 
@@ -34,44 +35,52 @@ export type HomeTabParamList = {
 
 export function Home() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Tab.Navigator tabBarPosition="bottom" tabBar={BottomTabBar}>
-        <Tab.Screen
-          name="Feed"
-          component={Feed}
-          options={{
-            title: 'feed',
-            tabBarIcon: (focused: boolean) => <FeedIcon isActive={focused} />,
-          }}
-        />
+    <Fragment>
+      <SafeAreaView style={styles.margin} />
 
-        <Tab.Screen
-          name="Search"
-          component={Search}
-          options={{
-            title: 'search',
-            tabBarIcon: (focused: boolean) => <SearchIcon isActive={focused} />,
-          }}
-        />
+      <SafeAreaView style={styles.container}>
+        <Tab.Navigator tabBarPosition="bottom" tabBar={BottomTabBar}>
+          <Tab.Screen
+            name="Feed"
+            component={Feed}
+            options={{
+              title: 'feed',
+              tabBarIcon: (focused: boolean) => <FeedIcon isActive={focused} />,
+            }}
+          />
 
-        <Tab.Screen
-          name="Maps"
-          component={Maps}
-          options={{
-            title: '',
-            tabBarIcon: () => <MapsIcon />,
-          }}
-        />
+          <Tab.Screen
+            name="Search"
+            component={Search}
+            options={{
+              title: 'search',
+              tabBarIcon: (focused: boolean) => (
+                <SearchIcon isActive={focused} />
+              ),
+            }}
+          />
 
-        <Tab.Screen
-          name="Profile"
-          component={ProfileSettingsForm}
-          options={{
-            title: '',
-            tabBarIcon: () => <ProfileIcon />,
-          }}
-        />
-      </Tab.Navigator>
-    </SafeAreaView>
+          <Tab.Screen
+            name="Maps"
+            component={Maps}
+            options={{
+              title: '',
+              tabBarIcon: () => <MapsIcon />,
+            }}
+          />
+
+          <Tab.Screen
+            name="Profile"
+            component={ProfileSettingsForm}
+            options={{
+              title: '',
+              tabBarIcon: () => <ProfileIcon />,
+            }}
+          />
+        </Tab.Navigator>
+      </SafeAreaView>
+
+      <SafeAreaView style={styles.margin} />
+    </Fragment>
   )
 }
