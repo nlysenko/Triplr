@@ -17,7 +17,7 @@ interface Props {
 
 export function TripListItem({ trip, onPress }: Props) {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity activeOpacity={1} onPress={onPress}>
       <ImageBackground
         style={styles.photo}
         resizeMode="cover"
