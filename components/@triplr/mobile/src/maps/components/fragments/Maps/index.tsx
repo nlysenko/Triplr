@@ -11,7 +11,7 @@ import { styles } from './styles'
 export function Maps() {
   return (
     <View style={styles.container}>
-      <Text>Maps page</Text>
+      <Text>Maps</Text>
     </View>
   )
 }

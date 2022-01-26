@@ -11,7 +11,7 @@ import { styles } from './styles'
 export function ProfileSettingsForm() {
   return (
     <View style={styles.container}>
-      <Text>Profile page</Text>
+      <Text>Profile</Text>
     </View>
   )
 }
