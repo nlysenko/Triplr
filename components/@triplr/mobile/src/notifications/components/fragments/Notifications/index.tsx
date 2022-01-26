@@ -4,18 +4,22 @@
  *
  */
 
-import { View, Button, Text } from 'react-native'
+import { View, Text } from 'react-native'
 import { RootStackParamList } from '@/app/navigation/RootStack'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
+
+import { BackButton } from '@/app/components/BackButton'
+
+import { styles } from './styles'
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Notifications'>
 
 export function Notifications({ navigation }: Props) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Notifications</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Notifications</Text>
 
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <BackButton onButtonPress={() => navigation.goBack()} />
     </View>
   )
 }
