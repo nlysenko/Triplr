@@ -49,7 +49,7 @@ export function TripList({ navigation }: Props) {
       ))}
     </ScrollView>
   ) : (
-    <View style={styles.wrapper}>
+    <View style={styles.indicator}>
       <ActivityIndicator size="small" color="#0000ff" />
     </View>
   )

@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
 
-  wrapper: {
+  search: {
     paddingTop: 41,
     paddingBottom: 18,
     paddingHorizontal: 20,

@@ -1,10 +1,6 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  trip: {
-    flex: 1,
-  },
-
   tripName: {
     color: '#373737',
     fontFamily: 'Metropolis-Bold',

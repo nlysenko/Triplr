@@ -7,17 +7,27 @@ export const styles = StyleSheet.create({
   },
 
   top: {
-    paddingTop: 53,
-    paddingHorizontal: 20,
-    paddingBottom: 23,
+    flex: 0,
+    backgroundColor: '#fff',
   },
 
-  tripItemWrapper: {
-    paddingHorizontal: 20,
-    paddingBottom: 23,
+  bottom: {
+    flex: 0,
+    backgroundColor: '#fff',
   },
 
-  tabBarWrapper: {
+  topBar: {
+    paddingTop: 35,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+  },
+
+  tripItem: {
+    paddingHorizontal: 20,
+    paddingBottom: 30,
+  },
+
+  tabBar: {
     paddingHorizontal: 20,
     paddingTop: 11,
   },

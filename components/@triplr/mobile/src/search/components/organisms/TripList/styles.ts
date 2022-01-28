@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 19,
   },
 
-  wrapper: {
+  indicator: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

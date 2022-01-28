@@ -14,7 +14,11 @@ interface Props {
 
 export function BackButton({ onButtonPress }: Props) {
   return (
-    <TouchableOpacity style={styles.backButton} onPress={onButtonPress}>
+    <TouchableOpacity
+      style={styles.backButton}
+      activeOpacity={1}
+      onPress={onButtonPress}
+    >
       <Image
         style={styles.backArrowIcon}
         source={require('assets/img/arrow-backward.png')}

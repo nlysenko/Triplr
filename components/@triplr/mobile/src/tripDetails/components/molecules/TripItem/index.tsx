@@ -16,7 +16,7 @@ interface Props {
 
 export function TripItem({ trip }: Props) {
   return (
-    <View style={styles.trip}>
+    <View>
       <Text style={styles.tripName}>{trip.name}</Text>
 
       <View style={styles.tripDuration}>

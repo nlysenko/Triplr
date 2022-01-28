@@ -6,18 +6,12 @@
 
 import { View, Text } from 'react-native'
 
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
-
-import { SearchTabParamList } from '@/search/components/fragments/Search'
-
 import { styles } from './styles'
 
-type Props = NativeStackScreenProps<SearchTabParamList, 'Photos'>
-
-export function TripPhotoList({ route }: Props) {
+export function TripPhotoList() {
   return (
     <View style={styles.container}>
-      {route.params?.referer ? <Text>{route.params?.referer}</Text> : false}
+      <Text>Photos</Text>
     </View>
   )
 }

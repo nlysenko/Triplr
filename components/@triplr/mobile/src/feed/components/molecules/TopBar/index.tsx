@@ -20,6 +20,7 @@ export function TopBar({ title, onNotificationIconPress }: Props) {
 
       <TouchableOpacity
         style={styles.notificationsButton}
+        activeOpacity={1}
         onPress={onNotificationIconPress}
       >
         <Image

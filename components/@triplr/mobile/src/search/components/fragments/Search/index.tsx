@@ -17,11 +17,6 @@ import { styles } from './styles'
 
 const Tab = createMaterialTopTabNavigator()
 
-export type SearchTabParamList = {
-  Photos: { referer: string }
-  Trips: { referer: string }
-}
-
 export function Search() {
   const [searchItem, setSearchItem] = useState('')
 
@@ -31,7 +26,7 @@ export function Search() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.wrapper}>
+      <View style={styles.search}>
         <SearchInput value={searchItem} onChange={handleChangeSearchField} />
       </View>
 

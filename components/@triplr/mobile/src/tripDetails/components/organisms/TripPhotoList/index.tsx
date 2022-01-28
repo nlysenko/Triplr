@@ -4,14 +4,16 @@
  *
  */
 
-import { View, Text } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 
 import { styles } from './styles'
 
 export function TripPhotoList() {
   return (
-    <View style={styles.container}>
-      <Text>Activities</Text>
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View>
+        <Text>Photos</Text>
+      </View>
+    </ScrollView>
   )
 }

@@ -4,9 +4,10 @@
  *
  */
 
-import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import { Fragment } from 'react'
 
 import { RootStackParamList } from '@/app/navigation/RootStack'
 
@@ -31,37 +32,39 @@ export function TripDetails({ navigation, route }: Props) {
     const trip = route.params.details
 
     return (
-      <SafeAreaView style={styles.container}>
-        <ScrollView>
-          <View style={styles.top}>
+      <Fragment>
+        <SafeAreaView style={styles.top} />
+
+        <SafeAreaView style={styles.container}>
+          <View style={styles.topBar}>
             <BackButton onButtonPress={goToPreviousScreen} />
           </View>
 
-          <View style={styles.tripItemWrapper}>
+          <View style={styles.tripItem}>
             <TripItem trip={trip} />
           </View>
 
-          <View style={styles.tabBarWrapper}>
-            <Tab.Navigator tabBar={TopTabBar}>
-              <Tab.Screen
-                name="Activities"
-                component={TripActivities}
-                options={{
-                  title: 'Activities',
-                }}
-              />
+          <Tab.Navigator tabBar={TopTabBar}>
+            <Tab.Screen
+              name="Activities"
+              component={TripActivities}
+              options={{
+                title: 'Activities',
+              }}
+            />
 
-              <Tab.Screen
-                name="Photos"
-                component={TripPhotoList}
-                options={{
-                  title: 'Photos',
-                }}
-              />
-            </Tab.Navigator>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+            <Tab.Screen
+              name="Photos"
+              component={TripPhotoList}
+              options={{
+                title: 'Photos',
+              }}
+            />
+          </Tab.Navigator>
+        </SafeAreaView>
+
+        <SafeAreaView style={styles.bottom} />
+      </Fragment>
     )
   } else {
     return (
