@@ -1,6 +1,6 @@
 /**
  *
- * TripItem
+ * TripName
  *
  */
 
@@ -14,7 +14,7 @@ interface Props {
   trip: Trip
 }
 
-export function TripItem({ trip }: Props) {
+export function TripName({ trip }: Props) {
   return (
     <View>
       <Text style={styles.tripName}>{trip.name}</Text>

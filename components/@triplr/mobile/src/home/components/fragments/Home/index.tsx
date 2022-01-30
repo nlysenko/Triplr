@@ -4,7 +4,7 @@
  *
  */
 
-import { SafeAreaView, View, Text } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import { Fragment } from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { NavigatorScreenParams } from '@react-navigation/native'
@@ -36,7 +36,7 @@ export type HomeTabParamList = {
 export function Home() {
   return (
     <Fragment>
-      <SafeAreaView style={styles.margin} />
+      <SafeAreaView style={styles.top} />
 
       <SafeAreaView style={styles.container}>
         <Tab.Navigator tabBarPosition="bottom" tabBar={BottomTabBar}>
@@ -80,7 +80,7 @@ export function Home() {
         </Tab.Navigator>
       </SafeAreaView>
 
-      <SafeAreaView style={styles.margin} />
+      <SafeAreaView style={styles.bottom} />
     </Fragment>
   )
 }

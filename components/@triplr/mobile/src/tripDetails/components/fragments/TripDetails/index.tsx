@@ -12,10 +12,10 @@ import { Fragment } from 'react'
 import { RootStackParamList } from '@/app/navigation/RootStack'
 
 import { BackButton } from '@/app/components/BackButton'
-import { TripItem } from '@/tripDetails/components/molecules/TripItem'
+import { TripName } from '@/app/components/TripName'
 import { TopTabBar } from '@/app/navigation/TopTabBar'
-import { TripActivities } from '@/tripDetails/components/organisms/TripActivities'
-import { TripPhotoList } from '@/tripDetails/components/organisms/TripPhotoList'
+import { TripActivities } from '@/app/components/TripActivities'
+import { TripPhotoList } from '@/app/components/TripPhotoList'
 
 import { styles } from './styles'
 
@@ -41,7 +41,7 @@ export function TripDetails({ navigation, route }: Props) {
           </View>
 
           <View style={styles.tripItem}>
-            <TripItem trip={trip} />
+            <TripName trip={trip} />
           </View>
 
           <Tab.Navigator tabBar={TopTabBar}>

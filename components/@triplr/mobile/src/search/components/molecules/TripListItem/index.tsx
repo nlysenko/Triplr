@@ -12,7 +12,7 @@ import { styles } from './styles'
 
 interface Props {
   trip: Trip
-  onPress: any
+  onPress: () => void
 }
 
 export function TripListItem({ trip, onPress }: Props) {
