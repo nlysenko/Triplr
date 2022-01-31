@@ -1,0 +1,41 @@
+{
+  "id": "TripList",
+  "initial": "loading",
+  "context": {
+    "trips": [],
+    "selectedTrip": null,
+    "isDeviceTablet": null
+  },
+  "entry": ["setIsDeviceTablet"],
+  "states": {
+    "loading": {
+      "invoke": {
+        "src": "fetchTrips",
+        "onDone": [
+          {
+            "cond": "hasData",
+            "actions": ["setTrips"],
+            "target": "withData"
+          },
+          {
+            "target": "empty"
+          }
+        ]
+      }
+    },
+    "withData": {
+      "on": {
+        "TRIP__SELECT": [
+          {
+            "cond": "isDeviceTablet",
+            "actions": ["setSelectedTrip"]
+          },
+          {
+            "actions": ["openTripDetails"]
+          }
+        ]
+      }
+    },
+    "empty": {}
+  }
+}

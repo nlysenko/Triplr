@@ -6,80 +6,61 @@
 
 import { ScrollView, View } from 'react-native'
 import { ActivityIndicator } from 'react-native'
-import { useState, useEffect } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParamList } from '@/app/navigation/RootStack'
 
 import { TripListItem } from '@/search/components/molecules/TripListItem'
 import { TripItem } from '@/search/components/molecules/TripItem'
-import { Trip } from '@/app/types/trip'
-import { fetchData } from '@/app/utils/fetchData'
-import DeviceInfo from 'react-native-device-info'
 import { styles } from './styles'
+
+import stateMachine from './state.machine'
+import { useMachine } from '@xstate/react'
 
 type Props = NativeStackScreenProps<RootStackParamList, 'TripDetails'>
 
 export function TripList({ navigation }: Props) {
-  const [trips, setTrips] = useState<Trip[]>([])
-  const [deviceIsTablet, setDeviceIsTablet] = useState(Boolean)
-  const [tipsIsLoaded, setTripsIsLoaded] = useState(false)
-  const [selectedTrip, setSelectedTrip] = useState<Trip>(Object)
+  const [state, sendEvent] = useMachine(stateMachine, {
+    context: { navigation },
+  })
+  const { trips, selectedTrip, isDeviceTablet } = state.context
 
-  useEffect(() => {
-    setDeviceIsTablet(DeviceInfo.getDeviceType() === 'Tablet')
-    ;(async () => {
-      const trips = await fetchData('trips')
+  const currentTripId: string = selectedTrip ? selectedTrip.id : ''
 
-      if (trips) {
-        setTrips(trips)
-        setSelectedTrip(trips[0])
-        setTripsIsLoaded(true)
-      } else {
-        setTripsIsLoaded(false)
-      }
-    })()
-  }, [])
-
-  function choiceTrip(trip: Trip) {
-    if (!deviceIsTablet) {
-      navigation.navigate('TripDetails', { details: trip })
-    } else {
-      setSelectedTrip(trip)
-    }
-  }
-
-  return tipsIsLoaded ? (
+  return state.matches('loading') ? (
+    <View style={styles.indicator}>
+      <ActivityIndicator size="small" color="#0000ff" />
+    </View>
+  ) : (
     <ScrollView
       contentContainerStyle={
-        deviceIsTablet ? styles.tabletContainer : styles.container
+        isDeviceTablet ? styles.tabletContainer : styles.container
       }
     >
-      <View style={deviceIsTablet ? styles.tabletTripList : styles.tripList}>
+      <View style={isDeviceTablet ? styles.tabletTripList : styles.tripList}>
         {trips.map(trip => (
           <View
             style={
-              deviceIsTablet && trip.id === selectedTrip.id
+              isDeviceTablet && trip.id === currentTripId
                 ? styles.tripListItemActive
                 : styles.tripListItem
             }
             key={trip.id}
           >
-            <TripListItem trip={trip} onPress={() => choiceTrip(trip)} />
+            <TripListItem
+              trip={trip}
+              onPress={() => sendEvent({ type: 'TRIP__SELECT', data: trip })}
+            />
           </View>
         ))}
       </View>
 
-      {deviceIsTablet ? (
+      {isDeviceTablet && selectedTrip ? (
         <View style={styles.tripDetails}>
           <TripItem trip={selectedTrip} />
         </View>
       ) : (
-        false
+        <View style={styles.tripDetails} />
       )}
     </ScrollView>
-  ) : (
-    <View style={styles.indicator}>
-      <ActivityIndicator size="small" color="#0000ff" />
-    </View>
   )
 }
